@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="post-entry">
-        <h2>{{ post.titulo }}</h2>
-        <p>{{ post.cuerpo }}</p>
+    <div class="card mb-3 g-4">
+        <div class="container">
+            <div class="post-entry">
+                <h2 class="text-center text-xl-start" >{{ post.titulo }}</h2>
+                <img class="w-100 rounded mx-auto d-block" src="{{ post.imagen}}" alt="">
+                <div class="card-footer">
+                    <p>{{ post.cuerpo }}</p>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <a class="btn btn-block btn-outline-primary" href="{% url 'post_edit' post.pk %}">+ Editar la publicacion de la pelicula</a>
+    
+            </div>
+    
+            <div class="mb-3">
+                <a class="btn btn-block btn-outline-danger" href="{% url 'post_delete' post.pk %}">+ Eliminar la publicacion de la pelicula</a>
+    
+            </div>
+        </div>
+
     </div>
 
-    <a href="{% url 'post_edit' post.pk %}">+ Editar Post de Blog</a>
-    <a href="{% url 'post_delete' post.pk %}">+ Eliminar Post de Blog</a>
+
+
 {% endblock content %}

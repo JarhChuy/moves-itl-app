@@ -8,8 +8,8 @@ class Post(models.Model):
         'auth.User',
         on_delete=models.CASCADE,
     )
-    papa = models.CharField( "Imagen link", max_length=500 )
-    cuerpo = models.TextField()
+    imagen = models.CharField( "Imagen link", max_length=500 )
+    cuerpo = models.TextField("Descripcion")
 
     def __str__(self):
         return self.titulo
