@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Post{% endblock title %}
 
 {% block content %}
     <div class="card mb-3 g-4">
@@ -24,10 +25,30 @@
             {% endif %}
         </div>
 
-        <div class="container">
-            
+        <div class="card-footer">
+            {% for comment in post.posts.all %}
+                <p>
+                    <span class="text-muted"> | </span><span class="font-weight-bold">{{ comment.autor }}</span><span class="text-muted"> comento: </span>
+                    {{ comment }} 
+                    {% if comment.autor == request.user %}
+                    <a id="eliminar" href="{% url 'comment_delete' comment.pk %}">Eliminar comentario</a>
+                    
+                    {% endif %}
+                </p>
+            {% endfor %}
+            <br>
+            {% if user.is_authenticated %}
+                <a href="{% url 'comment_new' post.pk %}">Agregar comentario</a>
+            {% endif %}
         </div>
 
+        <a id="redirect" href="{% url 'post_detail' post.pk %}"></a>
+        <script>
+            function delete( ){
+                document.getElementById('redirect').click();
+
+            }
+        </script>
 
     </div>
 

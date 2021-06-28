@@ -10,11 +10,14 @@ from .views import (
   BlogUpdateView,
   BlogDeleteView,
   BlogAboutView,
-  # CommentCreateView,
-  # CommentDeleteView,
+  CommentCreateView,
+  CommentDeleteView,
 )
 
 urlpatterns = [
+    path('post/<int:pk>/newComment', CommentCreateView.as_view(), name='comment_new'),
+    # path('comment/<int:pk>/new', CommentCreateView.as_view(), name='comment_new'),
+    path('post/<int:pk>/deleteComment/', CommentDeleteView.as_view(), name='comment_delete' ),
     path('about/', BlogAboutView.as_view(), name='about'),
     path('post/<int:pk>/delete/', BlogDeleteView.as_view(), name='post_delete'),
     path('post/<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
