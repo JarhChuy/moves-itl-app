@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',#new
     'django.contrib.staticfiles',
-    'bootstrap4',
+    # 'bootstrap4',
     'crispy_forms',
     'django_bootstrap_icons',
 ]
