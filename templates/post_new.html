@@ -1,10 +1,17 @@
 <!-- templates/post_new.html -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Nuevo post</h1>
-    <form action="" method="POST">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
-    </form>
+
+    <div class="container">
+        <h1>Nuevo post</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <!-- <label for="id_phone">{{ form.titulo_label }}</label> -->
+            <input class="btn btn-success ml-2" type="submit" value="Guardar">
+        </form>
+
+    </div>
 {% endblock content %}

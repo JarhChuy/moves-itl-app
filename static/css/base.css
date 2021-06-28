@@ -46,3 +46,8 @@ body {
   .post-entry h2 a:hover {
     color: red;
   }
+
+  .img-tam{
+    width: 30%;
+    height: 320px;
+  }

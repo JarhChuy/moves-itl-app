@@ -1,26 +1,70 @@
 {% load static %}
-
+{% load bootstrap4 %}
 <html>
 
-    <head>
-        <title>Blog Dgango</title>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
-    </head>
+<head>
+    <title>Blog Dgango</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
 
-    <body>
-        <header>
-            <div class="nav-left">
-              <h1><a href="{% url 'home' %}">Blog Django</a></h1>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-lg-2">
+                <a class="navbar-brand" href="{% url 'home' %}">Movies App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo Post de Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-right">
-              <a href="{% url 'post_new' %}">+ Nuevo Post de Blog</a>
+        </nav> -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Movies App</a>
+            <div class="d-flex">
+                <a class="btn btn-success ml-2  nav-link active" href="#">Log In</a>
+                <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
+                <a class="nav-link text-light" href="#!">Acerca de</a>
+                <a class="nav-link text-light" href="#!">Contacto</a>
             </div>
-        </header>
-        <div>
-            {% block content %}
-            {% endblock content %}
+            <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
         </div>
-    </body>
+    </nav>
+
+    <div class="conteiner">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <!-- <img src="" alt="" id="imgLoad" height="200" width="200">
+    <input type="text" onchange="document.getElementById('imgLoad').src = this.value"> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>

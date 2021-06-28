@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="card-columns  p-5">
     {% for post in object_list %}
-        <div class="post-entry">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h2>
-            <p>{{ post.cuerpo }}</p>
+    <div class="card  mw-20">
+        <!-- <img class="card-img-top" src="{% static 'img/dog1.jpg'%}" style="height: 320px;" alt="Card image cap"> -->
+        <a href="{% url 'post_edit' post.pk %}"> <img class="card-img-top" src="https://i.blogs.es/ab481e/hellblade-2/original.jpeg" style="height: 320px;" alt="Card image cap"> </a>
+        
+        <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+                This content is a little bit longer.</p>
         </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
     {% endfor %}
+</div>
+
 {% endblock content %}
