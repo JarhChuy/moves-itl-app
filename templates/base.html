@@ -25,7 +25,7 @@
             <div class="d-flex">
                 <a class="btn btn-warning ml-2  nav-link active" href="{% url 'logout' %}">{{ user.username }} - Log out</a>
                 <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
-                <a class="nav-link text-light" href="#!">Acerca de</a>
+                <a class="nav-link text-light" href="{% url 'about' %}">Acerca de</a>
             </div>
         </div>
     </nav>
@@ -36,7 +36,7 @@
             <div class="d-flex">
                 <a class="btn btn-success ml-2  nav-link active" href="{% url 'login' %}">Log In</a>
                 <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
-                <a class="nav-link text-light" href="#!">Acerca de</a>
+                <a class="nav-link text-light" href="{% url 'about' %}">Acerca de</a>
             </div>
         </div>
     </nav>

@@ -11,6 +11,8 @@
                 </div>
             </div>
             
+
+            {% if post.autor == request.user %}
             <div class="mb-3">
                 <a class="btn btn-block btn-outline-primary" href="{% url 'post_edit' post.pk %}">+ Editar la publicacion de la pelicula</a>
     
@@ -18,9 +20,14 @@
     
             <div class="mb-3">
                 <a class="btn btn-block btn-outline-danger" href="{% url 'post_delete' post.pk %}">+ Eliminar la publicacion de la pelicula</a>
-    
             </div>
+            {% endif %}
         </div>
+
+        <div class="container">
+            
+        </div>
+
 
     </div>
 

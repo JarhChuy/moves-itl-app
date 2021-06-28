@@ -14,7 +14,9 @@
             <p class="card-text">{{post.cuerpo}}</p>
         </div>
         <div class="card-footer">
+            {% if post.autor == request.user %}
             <a class="text-end" href="{% url 'post_edit' post.pk %}"><p class="text-end">{% bs_icon 'pencil-fill' color='orange' %} + Editar</p></a>
+            {% endif %}
         </div>
     </div>
     {% endfor %}
