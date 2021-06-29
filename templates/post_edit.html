@@ -14,8 +14,13 @@ crossorigin="anonymous"></script>
             var aux = document.getElementById('id');
             var aux2 = document.getElementById('id_imagen');
 
-            aux.src = aux2.value;
-            console.log( aux2.value );
+            if (aux2.value == "") {
+                aux.src = "https://i.pinimg.com/736x/3a/ab/e0/3aabe0e9a520b9ad90407a82f85adb42.jpg"
+            } else{
+                aux.src = aux2.value;
+                console.log( aux2.value );
+            }
+
         } )
     } )
 </script>
@@ -26,7 +31,7 @@ crossorigin="anonymous"></script>
         {% csrf_token %}
         {{ form|crispy }}
         <div class="d-flex justify-content-center align-items-center">
-            <img id="id" class="" src="https://i.pinimg.com/736x/3a/ab/e0/3aabe0e9a520b9ad90407a82f85adb42.jpg" alt="" width="400" height="320">
+            <img id="id" class="" src="{{post.imagen}}" alt="" width="400" height="320">
         </div>
         <input class="btn btn-outline-success" type="submit" value="Actualizar">
     </form>
