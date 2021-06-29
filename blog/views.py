@@ -19,37 +19,39 @@ class BlogAccionView(ListView):
     model = Post
     template_name = 'accion.html'
     
-    def get_queryset(self):
-        return Post.objects.filter(id=1)
+    # def get_queryset(self):
+    #     return Post.objects.filter(id=1)
 
-# class BlogTerrorView(ListView):
-#     model = Post
-#     template_name = 'terror.html'
+class BlogTerrorView(ListView):
+    model = Post
+    template_name = 'terror.html'
 
-# class BlogInfantilView(ListView):
-#     model = Post
-#     template_name = 'infantil.html'
+class BlogInfantilView(ListView):
+    model = Post
+    template_name = 'infantiles.html'
     
-# class BlogRomanticView(ListView):
-#     model = Post
-#     template_name = 'romanticas.html'
-
-# class BlogListView(TemplateView):
-#     template_name = 'home.html'
+class BlogRomanticView(ListView):
+    model = Post
+    template_name = 'romanticas.html'
 
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
 
-class BlogCreateView(CreateView):
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
     fields = '__all__'
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.autor != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 class BlogUpdateView(UpdateView):
     model = Post
     template_name = 'post_edit.html'
-    fields = ['titulo', 'cuerpo','imagen']
+    fields = ['titulo', 'cuerpo','imagen','genero']
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()

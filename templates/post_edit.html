@@ -3,10 +3,31 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready( function(){
+        console.log("asd");
+        $('#id_imagen').on( 'change', function(){
+            var aux = document.getElementById('id');
+            var aux2 = document.getElementById('id_imagen');
+
+            aux.src = aux2.value;
+            console.log( aux2.value );
+        } )
+    } )
+</script>
+
 <div class="container">
     <h1>Editar Post</h1>
-    <form action="" method="POST">{% csrf_token %}
+    <form action="" method="POST">
+        {% csrf_token %}
         {{ form|crispy }}
+        <div class="d-flex justify-content-center align-items-center">
+            <img id="id" class="" src="https://i.pinimg.com/736x/3a/ab/e0/3aabe0e9a520b9ad90407a82f85adb42.jpg" alt="" width="400" height="320">
+        </div>
         <input class="btn btn-outline-success" type="submit" value="Actualizar">
     </form>
 </div>

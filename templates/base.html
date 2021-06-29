@@ -18,45 +18,71 @@
 </head>
 
 <body>
-    {%if user.is_authenticated %}
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Movies App</a>
             <div class="d-flex" >
-                
                 <div class="flex-row bd-highlight ">
                     <a class="btn btn-dark bg-dark ml-2  nav-link active" href="{% url 'accion' %}">Accion</a>    
                 </div>
                 <div class="flex-row bd-highlight ">
-                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="">Terror</a>
+                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="{% url 'terror' %}">Terror</a>
                 </div>
                 <div class="flex-row bd-highlight ">
-                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="">Infantil</a>
+                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="{% url 'infantil' %}">Infantil</a>
                 </div>                
                 <div class="flex-row bd-highlight ">
-                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="">Romanticas</a>
+                    <a class="btn btn-dark bg-dark ml-2  nav-link active" href="{% url 'romanticas' %}">Romanticas</a>
+                </div>
+            </div>
+            
+            <div class="d-flex">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="btn btn-warning ml-2  nav-link active" href="{% url 'logout' %}">{{ user.username }} - Log
+                                out</a>
+            
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
+            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'about' %}">Acerca de</a>
+            
+                        </li>
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ user.username }} - Log out
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">Cambiar contraseña</a>
+                              <a class="dropdown-item" href="#">Cerrar sesion</a>
+                            </div>
+                          </div>
+                    </ul>
                 </div>
                 
             </div>
-            <div class="d-flex">
-                <a class="btn btn-warning ml-2  nav-link active" href="{% url 'logout' %}">{{ user.username }} - Log out</a>
-                <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
-                <a class="nav-link text-light" href="{% url 'about' %}">Acerca de</a>
-            </div>
         </div>
     </nav>
-    {% else %}
-    <nav class="navbar navbar-dark bg-dark">
+    <!-- <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Movies App</a>
+            
+    
             <div class="d-flex">
                 <a class="btn btn-success ml-2  nav-link active" href="{% url 'login' %}">Log In</a>
+                {% if post.autor == request.user %}
                 <a class="btn btn-success ml-2  nav-link active" href="{% url 'post_new' %}">+ Nuevo pelicula</a>
+                {% endif %}
                 <a class="nav-link text-light" href="{% url 'about' %}">Acerca de</a>
+                
             </div>
         </div>
-    </nav>
-    {% endif %}
+    </nav> -->
     
     <!-- <p>Hi {{ user.username }}!</p>
     <p><a href="{% url 'logout' %}">Log out</a></p>

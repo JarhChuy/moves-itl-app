@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+
+{% block content %}
+<div class="card-columns  p-5">
+    {% for post in object_list %}
+        {% if post.genero == 4%}
+        <div class="card ">
+            <!-- <img class="card-img-top" src="{% static 'img/dog1.jpg'%}" style="height: 320px;" alt="Card image cap"> -->
+            <a href="{% url 'post_detail' post.pk %}"> <img class="card-img-top" src="{{post.imagen}}" style="height: 320px;" alt="Card image cap"> </a>
+            
+            <div class="card-body">
+                <h5 class="card-title">{{ post.titulo }}</h5>
+                <p class="card-text">{{post.cuerpo}}</p>
+            </div>
+            <div class="card-footer">
+                
+                <a href="" style="height: 40;width: 100;">{{post.status}}</a>
+                {% if post.autor == request.user %}
+                <a class="text-end" href="{% url 'post_edit' post.pk %}"><p class="text-end"> + Editar</p></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock content %}
