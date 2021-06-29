@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="h-100 d-flex justify-content-center align-items-center" >
@@ -6,7 +7,7 @@
         <h2>Sign up</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <button class="btn btn-outlinesucces " type="submit">Sing Up</button>
         </form>
 

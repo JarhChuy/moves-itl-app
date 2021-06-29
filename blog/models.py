@@ -3,6 +3,14 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+product_genero = [
+    (1, "Accion"),
+    (2, "Terror"),
+    (3, "Infantil"),
+    (4, "Romanticas"),
+    (5, "Musicales"),
+]
+
 # Create your models here.
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
@@ -12,6 +20,10 @@ class Post(models.Model):
     )
     cuerpo = models.TextField("Descripcion")
     imagen = models.CharField( "Imagen link", max_length=500 )
+    genero = models.IntegerField(
+        default=1,
+        choices=product_genero,
+    )
     
     def __str__(self):
         return self.titulo

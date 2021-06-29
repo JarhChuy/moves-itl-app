@@ -1,11 +1,12 @@
 <!-- templates/post_edit -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
     <h1>Editar Post</h1>
     <form action="" method="POST">{% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input class="btn btn-outline-success" type="submit" value="Actualizar">
     </form>
 </div>

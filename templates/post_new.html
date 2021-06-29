@@ -1,5 +1,6 @@
 <!-- templates/post_new.html -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -24,7 +25,7 @@ crossorigin="anonymous"></script>
         <h1>Nuevo post</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <div class="d-flex justify-content-center align-items-center">
                 <img id="id" class="" src="https://i.pinimg.com/736x/3a/ab/e0/3aabe0e9a520b9ad90407a82f85adb42.jpg" alt="" width="400" height="320">
 
