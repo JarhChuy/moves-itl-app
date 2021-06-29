@@ -1,10 +1,13 @@
 # blog/urls.py
 
 from django.urls import path
-from .views import BlogListView, BlogDetailView, BlogCreateView, BlogUpdateView, BlogAboutView#, CommentCreateView, CommentDeleteView,
 
 from .views import (
   BlogListView, 
+  BlogAccionView, 
+  # BlogTerrorView, 
+  # BlogInfantilView, 
+  # BlogRomanticView, 
   BlogDetailView, 
   BlogCreateView, 
   BlogUpdateView,
@@ -23,5 +26,9 @@ urlpatterns = [
     path('post/<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
     path('post/new/', BlogCreateView.as_view(), name='post_new'),
     path('post/<int:pk>', BlogDetailView.as_view(), name='post_detail'),
+    # path('', BlogRomanticView.as_view(), name='romanticas'),
+    # path('', BlogInfantilView.as_view(), name='infantil'),
+    # path('', BlogTerrorView.as_view(), name='terror'),
+    path('accion', BlogAccionView.as_view(), name='accion'),
     path('', BlogListView.as_view(), name='home'),
 ]

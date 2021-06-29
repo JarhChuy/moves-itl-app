@@ -15,6 +15,25 @@ class BlogListView(ListView):
     model = Post
     template_name = 'home.html'
 
+class BlogAccionView(ListView):
+    model = Post
+    template_name = 'accion.html'
+    
+    def get_queryset(self):
+        return Post.objects.filter(id=1)
+
+# class BlogTerrorView(ListView):
+#     model = Post
+#     template_name = 'terror.html'
+
+# class BlogInfantilView(ListView):
+#     model = Post
+#     template_name = 'infantil.html'
+    
+# class BlogRomanticView(ListView):
+#     model = Post
+#     template_name = 'romanticas.html'
+
 # class BlogListView(TemplateView):
 #     template_name = 'home.html'
 

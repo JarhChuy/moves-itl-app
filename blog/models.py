@@ -8,7 +8,6 @@ product_genero = [
     (2, "Terror"),
     (3, "Infantil"),
     (4, "Romanticas"),
-    (5, "Musicales"),
 ]
 
 # Create your models here.
