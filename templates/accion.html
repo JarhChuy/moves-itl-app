@@ -18,7 +18,7 @@
                 
                 <a href="" style="height: 40;width: 100;">{{post.status}}</a>
                 {% if post.autor == request.user %}
-                <a class="text-end" href="{% url 'post_edit' post.pk %}"><p class="text-end"> + Editar</p></a>
+                <a class="btn btn-secondary w-75 ml-4 mt-2 " href="{% url 'post_edit' post.pk %}"><p class="text-end"> + Editar</p></a>
                 {% endif %}
             </div>
         </div>

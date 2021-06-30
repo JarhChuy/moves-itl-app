@@ -38,17 +38,16 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
 
-class BlogCreateView(LoginRequiredMixin, CreateView):
+class BlogCreateView( LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = '__all__'
-    def dispatch(self, request, *args, **kwargs):
-        obj = self.get_object()
-        if obj.autor != self.request.user:
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+    fields = ('titulo','cuerpo','imagen','genero')
+    
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
 
-class BlogUpdateView(UpdateView):
+class BlogUpdateView(LoginRequiredMixin,UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['titulo', 'cuerpo','imagen','genero']
@@ -59,7 +58,7 @@ class BlogUpdateView(UpdateView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-class BlogDeleteView(DeleteView):
+class BlogDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')

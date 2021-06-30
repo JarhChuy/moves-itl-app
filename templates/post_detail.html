@@ -7,9 +7,12 @@
             <div class="post-entry">
                 <h2 class="text-center text-xl-start" >{{ post.titulo }}</h2>
                 <img class="w-100 rounded mx-auto d-block" src="{{ post.imagen}}" alt="">
-                <div class="card-footer">
+                
+                <div class="card-footer justify-content-center p-0">
                     <p>{{ post.cuerpo }}</p>
+                    <p class="text-right mb-2 mr-2 mt-2">Publicado por {{post.autor}}</p>
                 </div>
+                
             </div>
             
 
@@ -26,6 +29,8 @@
         </div>
 
         <div class="card-footer">
+            <h7>Comentarios</h7>
+            <br>
             {% for comment in post.posts.all %}
                 <p>
                     <span class="text-muted"> | </span><span class="font-weight-bold">{{ comment.autor }}</span><span class="text-muted"> comento: </span>
